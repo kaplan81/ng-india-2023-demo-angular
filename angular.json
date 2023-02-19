@@ -142,7 +142,6 @@
             "tsConfig": "projects/mfes/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["projects/mfes/src/assets"],
-            "styles": ["projects/mfes/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
