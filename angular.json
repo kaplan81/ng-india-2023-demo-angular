@@ -138,18 +138,11 @@
             "outputPath": "dist/mfes",
             "index": "projects/mfes/src/index.html",
             "main": "projects/mfes/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/mfes/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/mfes/src/favicon.ico",
-              "projects/mfes/src/assets"
-            ],
-            "styles": [
-              "projects/mfes/src/styles.scss"
-            ],
+            "assets": ["projects/mfes/src/favicon.ico", "projects/mfes/src/assets"],
+            "styles": ["projects/mfes/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -190,31 +183,6 @@
             }
           },
           "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "mfes:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "projects/mfes/tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/mfes/src/favicon.ico",
-              "projects/mfes/src/assets"
-            ],
-            "styles": [
-              "projects/mfes/src/styles.scss"
-            ],
-            "scripts": []
-          }
         }
       }
     }
