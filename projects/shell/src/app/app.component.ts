@@ -18,7 +18,6 @@ import { BehaviorSubject } from 'rxjs';
   imports: [NgClass, AsyncPipe],
   selector: 'shl-root',
   standalone: true,
-  styleUrls: ['./app.component.scss'],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
