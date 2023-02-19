@@ -45,7 +45,6 @@
             "polyfills": ["zone.js"],
             "tsConfig": "projects/shell/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["projects/shell/src/favicon.ico", "projects/shell/src/assets"],
             "scripts": [],
             "extraWebpackConfig": "projects/shell/webpack.config.js",
             "commonChunk": false
