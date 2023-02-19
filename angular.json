@@ -46,7 +46,6 @@
             "tsConfig": "projects/shell/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["projects/shell/src/favicon.ico", "projects/shell/src/assets"],
-            "styles": ["projects/shell/src/styles.scss"],
             "scripts": [],
             "extraWebpackConfig": "projects/shell/webpack.config.js",
             "commonChunk": false
