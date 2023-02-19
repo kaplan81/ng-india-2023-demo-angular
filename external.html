@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>External App</title>
   </head>
   <body>
-    <h1>Plus Ultra Realm</h1>
-    <div class="external-component">
+    <h1>External App</h1>
+    <div class="ng-widget">
       <shl-root></shl-root>
       <script src="http://localhost:4200/polyfills.js" type="module"></script>
       <script src="http://localhost:4200/main.js" type="module"></script>
+      <script defer>
+        console.log('Plus Ultra Realm');
+      </script>
     </div>
-    <script>
-      console.log('Plus Ultra Realm');
-    </script>
   </body>
 </html>
