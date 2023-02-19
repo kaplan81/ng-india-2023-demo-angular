@@ -87,7 +87,8 @@
               "extraWebpackConfig": "projects/shell/webpack.prod.config.js"
             },
             "development": {
-              "browserTarget": "shell:build:development"
+              "browserTarget": "shell:build:production",
+              "extraWebpackConfig": "projects/shell/webpack.prod.config.js"
             }
           },
           "defaultConfiguration": "development",
