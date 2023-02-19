@@ -1,6 +1,5 @@
 import { AsyncPipe, DOCUMENT, NgClass } from '@angular/common';
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -22,7 +21,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./app.component.scss'],
   templateUrl: './app.component.html',
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   static readonly componentAttrEquals = 'component=';
   static readonly hostElementTag = 'rqe-host';
   @ViewChild('customElementHolder') customElementHolder!: ElementRef;
@@ -34,10 +33,6 @@ export class AppComponent implements AfterViewInit {
 
   constructor() {
     this.defineRqeHost(this.#injector);
-  }
-
-  ngAfterViewInit(): void {
-    this.loadSnippet();
   }
 
   private defineRqeHost(
@@ -55,25 +50,26 @@ export class AppComponent implements AfterViewInit {
 
   private loadSnippet(): void {
     if (this.customElementHolder !== undefined) {
-      let componentPath: string = this.#router.routerState.snapshot.url.substring(1);
-      const indexOfQuery: number = componentPath.indexOf('?');
-      // When the URL contains query params.
-      if (indexOfQuery !== -1) {
-        componentPath = componentPath.substring(0, indexOfQuery);
-      }
-      try {
-        const fragment: DocumentFragment = this.#document
-          .createRange()
-          .createContextualFragment(
-            `<${AppComponent.hostElementTag} ${AppComponent.componentAttrEquals}"${componentPath}"></${AppComponent.hostElementTag}>`,
-          );
-        this.customElementHolder.nativeElement.appendChild(fragment);
-        setTimeout(() => {
-          this.hasAppendedElement$.next(true);
-        }, 0);
-      } catch (error: unknown) {
-        console.error('Error while loading external snippet', error);
-      }
+      /** Original implementation from the local app */
+      // let componentPath: string = this.#router.routerState.snapshot.url.substring(1);
+      // const indexOfQuery: number = componentPath.indexOf('?');
+      // // When the URL contains query params.
+      // if (indexOfQuery !== -1) {
+      //   componentPath = componentPath.substring(0, indexOfQuery);
+      // }
+      // try {
+      //   const fragment: DocumentFragment = this.#document
+      //     .createRange()
+      //     .createContextualFragment(
+      //       `<${AppComponent.hostElementTag} ${AppComponent.componentAttrEquals}"${componentPath}"></${AppComponent.hostElementTag}>`,
+      //     );
+      //   this.customElementHolder.nativeElement.appendChild(fragment);
+      //   setTimeout(() => {
+      //     this.hasAppendedElement$.next(true);
+      //   }, 0);
+      // } catch (error: unknown) {
+      //   console.error('Error while loading external snippet', error);
+      // }
     }
   }
 }
