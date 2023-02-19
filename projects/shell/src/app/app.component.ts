@@ -22,7 +22,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AppComponent {
   static readonly componentAttrEquals = 'component=';
-  static readonly hostElementTag = 'rqe-host';
+  static readonly hostElementTag = 'shl-host';
   @ViewChild('customElementHolder') customElementHolder!: ElementRef;
   #document: Document = inject(DOCUMENT);
   hasAppendedElement$ = new BehaviorSubject<boolean>(false);
@@ -31,10 +31,10 @@ export class AppComponent {
   #router = inject(Router);
 
   constructor() {
-    this.defineRqeHost(this.#injector);
+    this.defineHost(this.#injector);
   }
 
-  private defineRqeHost(
+  private defineHost(
     inj: Injector,
     cmp: Type<any> = AppComponent,
     tag: string = AppComponent.hostElementTag,
