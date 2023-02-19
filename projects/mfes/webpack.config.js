@@ -17,7 +17,12 @@ const microfrontendWebpackConfig = {
     new ModuleFederationPlugin({
       library: { type: 'module' },
       name: 'mfes',
-      exposes: {},
+      // 'exposes' should be generated.
+      exposes: {
+        './mfe1': './projects/mfes/src/lib/containers/mfe1/mfe1.component.ts',
+        './mfe2': './projects/mfes/src/lib/containers/mfe2/mfe2.component.ts',
+        './mfe3': './projects/mfes/src/lib/containers/mfe3/mfe3.component.ts',
+      },
       shared: share({
         '@angular/core': {
           singleton: true,
