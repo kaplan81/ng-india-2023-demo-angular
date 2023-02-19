@@ -141,7 +141,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "projects/mfes/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["projects/mfes/src/favicon.ico", "projects/mfes/src/assets"],
+            "assets": ["projects/mfes/src/assets"],
             "styles": ["projects/mfes/src/styles.scss"],
             "scripts": []
           },
