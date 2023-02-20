@@ -11,7 +11,7 @@ export class ConfigService {
   #http = inject(HttpClient);
 
   loadConfig(): Observable<ConfigFile> {
-    const url = 'config/config.json';
+    const url = 'http://localhost:4201/config/config.json';
     return this.#http
       .get<ConfigFile>(url)
       .pipe(tap((configFile: ConfigFile) => (this.configs = configFile)));
