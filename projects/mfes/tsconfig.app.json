@@ -5,7 +5,7 @@
   },
   "files": ["src/main.ts"],
   /**
-   * This config is crucial.
+   * This config is important.
    * We need to include all TS files
    * in the compilation.
    */

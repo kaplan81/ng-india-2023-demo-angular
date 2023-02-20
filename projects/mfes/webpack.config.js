@@ -53,12 +53,12 @@ const microfrontendWebpackConfig = {
   ],
 };
 
-// Uncomment for debugging.
-console.log('microfrontendWebpackConfig:::', microfrontendWebpackConfig);
-console.log(
-  'ModuleFederationPlugin options:::',
-  // @ts-ignore
-  microfrontendWebpackConfig.plugins[0]._options,
-);
+// // Uncomment for debugging.
+// console.log('microfrontendWebpackConfig:::', microfrontendWebpackConfig);
+// console.log(
+//   'ModuleFederationPlugin options:::',
+//   // @ts-ignore
+//   microfrontendWebpackConfig.plugins[0]._options,
+// );
 
 module.exports = microfrontendWebpackConfig;
