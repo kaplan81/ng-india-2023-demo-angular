@@ -6,6 +6,7 @@ import {
   inject,
   Injector,
   Input,
+  OnInit,
   Type,
   ViewChild,
 } from '@angular/core';
@@ -20,9 +21,10 @@ import { BehaviorSubject } from 'rxjs';
   standalone: true,
   templateUrl: './app.component.html',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   static readonly componentAttrEquals = 'component=';
   static readonly hostElementTag = 'shl-host';
+  @Input() component: string | null = null;
   @ViewChild('customElementHolder') customElementHolder!: ElementRef;
   #document: Document = inject(DOCUMENT);
   hasAppendedElement$ = new BehaviorSubject<boolean>(false);
@@ -32,6 +34,10 @@ export class AppComponent {
 
   constructor() {
     this.defineHost(this.#injector);
+  }
+
+  ngOnInit(): void {
+    this.loadComponent();
   }
 
   private defineHost(
@@ -44,6 +50,17 @@ export class AppComponent {
         injector: inj,
       });
       customElements.define(tag, hostElement);
+    }
+  }
+
+  private loadComponent(): void {
+    if (this.component !== null) {
+      console.log('WE HAVE COMPONENT INPUT', this.component);
+      // const external: ExternalModule = await externalModule(this.component);
+      // const componentRef: ComponentRef<HTMLElement> = this.placeHolder.createComponent(
+      //   external.module,
+      // );
+      // this.dataAttributes(componentRef.instance);
     }
   }
 

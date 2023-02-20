@@ -9,13 +9,21 @@
   </head>
   <body>
     <h1>External App</h1>
+    <div class="buttons">
+      <button type="button" onclick="setFragment(1)">Go to MFE1</button>
+      <button type="button" onclick="setFragment(2)">Go to MFE2</button>
+      <button type="button" onclick="setFragment(3)">Go to MFE3</button>
+    </div>
     <div class="ng-widget">
       <shl-root></shl-root>
       <script src="http://localhost:4200/polyfills.js" type="module"></script>
       <script src="http://localhost:4200/main.js" type="module"></script>
-      <script defer>
-        console.log('Plus Ultra Realm');
-      </script>
+      <script src="app.js" defer></script>
     </div>
+    <script>
+      function setFragment(number) {
+        console.log('MFE number is:::', number);
+      }
+    </script>
   </body>
 </html>
