@@ -1,7 +1,7 @@
 // @ts-check
 'use-strict';
 
-function setFragment(number) {
+function setWidget(number) {
   const exposedMfePath = `projects/mfes/src/lib/containers/mfe${number}/mfe${number}.component`;
   const hostElelementWrapper = document.getElementById('host');
   if (hostElelementWrapper !== null) {
