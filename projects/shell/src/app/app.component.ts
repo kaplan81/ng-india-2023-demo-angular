@@ -64,28 +64,28 @@ export class AppComponent implements OnInit {
     }
   }
 
-  private loadSnippet(): void {
-    if (this.customElementHolder !== undefined) {
-      /** Original implementation from the local app */
-      // let componentPath: string = this.#router.routerState.snapshot.url.substring(1);
-      // const indexOfQuery: number = componentPath.indexOf('?');
-      // // When the URL contains query params.
-      // if (indexOfQuery !== -1) {
-      //   componentPath = componentPath.substring(0, indexOfQuery);
-      // }
-      // try {
-      //   const fragment: DocumentFragment = this.#document
-      //     .createRange()
-      //     .createContextualFragment(
-      //       `<${AppComponent.hostElementTag} ${AppComponent.componentAttrEquals}"${componentPath}"></${AppComponent.hostElementTag}>`,
-      //     );
-      //   this.customElementHolder.nativeElement.appendChild(fragment);
-      //   setTimeout(() => {
-      //     this.hasAppendedElement$.next(true);
-      //   }, 0);
-      // } catch (error: unknown) {
-      //   console.error('Error while loading external snippet', error);
-      // }
-    }
-  }
+  // private loadSnippet(): void {
+  //   if (this.customElementHolder !== undefined) {
+  //     /** Original implementation from the local app */
+  //     let componentPath: string = this.#router.routerState.snapshot.url.substring(1);
+  //     const indexOfQuery: number = componentPath.indexOf('?');
+  //     // When the URL contains query params.
+  //     if (indexOfQuery !== -1) {
+  //       componentPath = componentPath.substring(0, indexOfQuery);
+  //     }
+  //     try {
+  //       const fragment: DocumentFragment = this.#document
+  //         .createRange()
+  //         .createContextualFragment(
+  //           `<${AppComponent.hostElementTag} ${AppComponent.componentAttrEquals}"${componentPath}"></${AppComponent.hostElementTag}>`,
+  //         );
+  //       this.customElementHolder.nativeElement.appendChild(fragment);
+  //       setTimeout(() => {
+  //         this.hasAppendedElement$.next(true);
+  //       }, 0);
+  //     } catch (error: unknown) {
+  //       console.error('Error while loading external snippet', error);
+  //     }
+  //   }
+  // }
 }
