@@ -13,10 +13,13 @@
       <button type="button" onclick="setWidget('host', { exposed: './mfe1', prop1: 'prop1' })">
         Go to MFE1
       </button>
-      <button type="button" onclick="setWidget('host', { exposed: './mfe2', prop2: 'prop2' })">
+      <button type="button" onclick="setWidget('host', { exposed: './mfe2', prop2: ['prop2'] })">
         Go to MFE2
       </button>
-      <button type="button" onclick="setWidget('host', { exposed: './mfe3', prop3: 'prop3' })">
+      <button
+        type="button"
+        onclick="setWidget('host', { exposed: './mfe3', prop3: { prop: 'prop' } })"
+      >
         Go to MFE3
       </button>
     </div>

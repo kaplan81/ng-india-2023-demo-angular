@@ -19,7 +19,7 @@ function setWidget(id, attrs) {
         try {
           const element = document.createElement('shl-host');
           for (const [key, value] of Object.entries(attrs)) {
-            element.setAttribute(key, value);
+            element.setAttribute(key, JSON.stringify(value));
           }
           const fragment = document.createRange().createContextualFragment(element.outerHTML);
           hostElelementWrapper.appendChild(fragment);

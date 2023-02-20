@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ComponentRef,
+  ElementRef,
   inject,
   Injector,
   Input,
@@ -25,6 +26,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AppComponent implements OnInit {
   static readonly hostElementTag = 'shl-host';
   @Input() exposed: string | null = null;
+  #elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
   @ViewChild('placeHolder', { read: ViewContainerRef }) placeHolder!: ViewContainerRef;
   hasAppendedElement$ = new BehaviorSubject<boolean>(false);
   #injector = inject(Injector);
@@ -55,12 +57,24 @@ export class AppComponent implements OnInit {
       const asyncModule = await loadRemoteModule({
         type: 'module',
         remoteEntry: 'http://localhost:4201/remoteEntry.js',
-        exposedModule: this.exposed,
+        exposedModule: JSON.parse(this.exposed),
       });
       const moduleName: string = Object.keys(asyncModule)[0];
       const module = asyncModule[moduleName];
       const componentRef: ComponentRef<HTMLElement> = this.placeHolder.createComponent(module);
-      // this.dataAttributes(componentRef.instance);
+      this.setAttributes(componentRef);
+    }
+  }
+
+  private setAttributes(cmpRef: ComponentRef<HTMLElement>): void {
+    const attributes: NamedNodeMap = this.#elementRef.nativeElement.attributes;
+    for (let i = 0; i < attributes.length; i++) {
+      const attribute: Attr | null = attributes.item(i);
+      if (attribute !== null) {
+        if (!['exposed', 'ng-version'].includes(attribute.name)) {
+          cmpRef.setInput(attribute.name, attribute.value);
+        }
+      }
     }
   }
 }
