@@ -140,7 +140,14 @@
             "polyfills": ["zone.js"],
             "tsConfig": "projects/mfes/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["projects/mfes/src/assets"],
+            "assets": [
+              "projects/mfes/src/assets",
+              {
+                "glob": "config.json",
+                "input": "projects/mfes/src/config",
+                "output": "/config"
+              }
+            ],
             "extraWebpackConfig": "projects/mfes/webpack.prod.config.js",
             "commonChunk": false
           },
