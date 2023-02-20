@@ -15,6 +15,7 @@
       <button type="button" onclick="setFragment(3)">Go to MFE3</button>
     </div>
     <div class="ng-widget">
+      <!-- This Angular component defines the custom element 'shl-host' -->
       <shl-root></shl-root>
       <script src="http://localhost:4200/polyfills.js" type="module"></script>
       <script src="http://localhost:4200/main.js" type="module"></script>
@@ -22,7 +23,8 @@
     </div>
     <script>
       function setFragment(number) {
-        console.log('MFE number is:::', number);
+        const exposedMfePath = `./projects/mfes/src/lib/containers/mfe${number}/mfe${number}.component.ts`;
+        console.log('exposedMfePath:::', exposedMfePath);
       }
     </script>
   </body>
