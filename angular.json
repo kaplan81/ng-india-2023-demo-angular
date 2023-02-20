@@ -45,8 +45,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "projects/shell/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "scripts": [],
-            "extraWebpackConfig": "projects/shell/webpack.config.js",
+            "extraWebpackConfig": "projects/shell/webpack.prod.config.js",
             "commonChunk": false
           },
           "configurations": {
@@ -89,7 +88,7 @@
               "extraWebpackConfig": "projects/shell/webpack.prod.config.js"
             }
           },
-          "defaultConfiguration": "development",
+          "defaultConfiguration": "production",
           "options": {
             "port": 4200,
             "publicHost": "http://localhost:4200",
@@ -133,7 +132,7 @@
       "prefix": "mfe",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/mfes",
             "index": "projects/mfes/src/index.html",
@@ -142,7 +141,8 @@
             "tsConfig": "projects/mfes/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["projects/mfes/src/assets"],
-            "scripts": []
+            "extraWebpackConfig": "projects/mfes/webpack.prod.config.js",
+            "commonChunk": false
           },
           "configurations": {
             "production": {
@@ -158,7 +158,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/mfes/webpack.prod.config.js"
             },
             "development": {
               "buildOptimizer": false,
@@ -172,16 +173,23 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "mfes:build:production"
+              "browserTarget": "mfes:build:production",
+              "extraWebpackConfig": "projects/mfes/webpack.prod.config.js"
             },
             "development": {
-              "browserTarget": "mfes:build:development"
+              "browserTarget": "mfes:build:development",
+              "extraWebpackConfig": "projects/mfes/webpack.prod.config.js"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "production",
+          "options": {
+            "port": 4201,
+            "publicHost": "http://localhost:4201",
+            "extraWebpackConfig": "projects/mfes/webpack.prod.config.js"
+          }
         }
       }
     }

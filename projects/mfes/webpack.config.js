@@ -1,3 +1,4 @@
+// @ts-check
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const mf = require('@angular-architects/module-federation/webpack');
 const share = mf.share;
@@ -17,6 +18,7 @@ const microfrontendWebpackConfig = {
     new ModuleFederationPlugin({
       library: { type: 'module' },
       name: 'mfes',
+      filename: 'remoteEntry.js',
       // 'exposes' should be generated.
       exposes: {
         './mfe1': './projects/mfes/src/lib/containers/mfe1/mfe1.component.ts',

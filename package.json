@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run run:all",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
+    "run:all": "node .scripts/node/mf-dev-server.js"
   },
-  "private": true,
   "dependencies": {
     "@angular-architects/module-federation": "^15.0.3",
     "@angular/animations": "^15.1.0",

@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom,
-  selector: 'mfe-mfe1',
+  selector: 'mfe-mfe2',
   standalone: true,
   styleUrls: ['./mfe2.component.scss'],
   templateUrl: './mfe2.component.html',
