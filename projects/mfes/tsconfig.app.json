@@ -4,5 +4,10 @@
     "outDir": "../../out-tsc/lib"
   },
   "files": ["src/main.ts"],
+  /**
+   * This config is crucial.
+   * We need to include all TS files
+   * in the compilation.
+   */
   "include": ["src/**/*.ts"]
 }
