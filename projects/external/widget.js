@@ -2,7 +2,7 @@
 'use-strict';
 
 function setWidget(number) {
-  const exposedMfePath = `projects/mfes/src/lib/containers/mfe${number}/mfe${number}.component`;
+  const exposed = `./mfe${number}`;
   const hostElelementWrapper = document.getElementById('host');
   if (hostElelementWrapper !== null) {
     const hasChildNodes = hostElelementWrapper.hasChildNodes();
@@ -14,7 +14,7 @@ function setWidget(number) {
     try {
       const fragment = document
         .createRange()
-        .createContextualFragment(`<shl-host component="${exposedMfePath}"></shl-host>`);
+        .createContextualFragment(`<shl-host exposed="${exposed}"></shl-host>`);
       hostElelementWrapper.appendChild(fragment);
     } catch (error) {
       console.error('Error while loading snippet:::', error);

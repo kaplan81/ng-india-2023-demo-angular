@@ -188,7 +188,8 @@
           "options": {
             "port": 4201,
             "publicHost": "http://localhost:4201",
-            "extraWebpackConfig": "projects/mfes/webpack.prod.config.js"
+            "extraWebpackConfig": "projects/mfes/webpack.prod.config.js",
+            "disableHostCheck": true
           }
         }
       }

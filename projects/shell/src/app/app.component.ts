@@ -1,14 +1,15 @@
+import { loadRemoteModule } from '@angular-architects/module-federation';
 import { AsyncPipe, NgClass } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   inject,
   Injector,
   Input,
   OnInit,
   Type,
   ViewChild,
+  ViewContainerRef,
 } from '@angular/core';
 import { createCustomElement, NgElementConstructor } from '@angular/elements';
 import { BehaviorSubject } from 'rxjs';
@@ -22,8 +23,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   static readonly hostElementTag = 'shl-host';
-  @Input() component: string | null = null;
-  @ViewChild('customElementHolder') customElementHolder!: ElementRef;
+  @Input() exposed: string | null = null;
+  @ViewChild('placeHolder', { read: ViewContainerRef }) placeHolder!: ViewContainerRef;
   hasAppendedElement$ = new BehaviorSubject<boolean>(false);
   #injector = inject(Injector);
 
@@ -48,13 +49,14 @@ export class AppComponent implements OnInit {
     }
   }
 
-  private loadComponent(): void {
-    if (this.component !== null) {
-      console.log('WE HAVE COMPONENT INPUT', this.component);
-      // const external: ExternalModule = await externalModule(this.component);
-      // const componentRef: ComponentRef<HTMLElement> = this.placeHolder.createComponent(
-      //   external.module,
-      // );
+  private async loadComponent(): Promise<any> {
+    if (this.exposed !== null) {
+      const module = await loadRemoteModule({
+        type: 'module',
+        remoteEntry: 'http://localhost:4201/remoteEntry.js',
+        exposedModule: './mfe1',
+      });
+      // const componentRef: ComponentRef<HTMLElement> = this.placeHolder.createComponent(module);
       // this.dataAttributes(componentRef.instance);
     }
   }
