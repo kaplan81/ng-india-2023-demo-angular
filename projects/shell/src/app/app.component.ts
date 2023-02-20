@@ -3,6 +3,7 @@ import { AsyncPipe, NgClass } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  ComponentRef,
   inject,
   Injector,
   Input,
@@ -51,12 +52,15 @@ export class AppComponent implements OnInit {
 
   private async loadComponent(): Promise<any> {
     if (this.exposed !== null) {
-      const module = await loadRemoteModule({
+      const asyncModule = await loadRemoteModule({
         type: 'module',
         remoteEntry: 'http://localhost:4201/remoteEntry.js',
         exposedModule: './mfe1',
       });
-      // const componentRef: ComponentRef<HTMLElement> = this.placeHolder.createComponent(module);
+      const moduleName: string = Object.keys(asyncModule)[0];
+      const module = asyncModule[moduleName];
+      console.log('module:::', module);
+      const componentRef: ComponentRef<HTMLElement> = this.placeHolder.createComponent(module);
       // this.dataAttributes(componentRef.instance);
     }
   }
