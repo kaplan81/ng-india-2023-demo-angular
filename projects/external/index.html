@@ -14,12 +14,14 @@
         Go to MFE1
       </button>
       <button type="button" onclick="setWidget('host', { exposed: './mfe2', prop2: ['prop2'] })">
+        <!-- <button type="button" onclick="setWidget('host2', { exposed: './mfe2', prop2: ['prop2'] })"> -->
         Go to MFE2
       </button>
       <button
         type="button"
         onclick="setWidget('host', { exposed: './mfe3', prop3: { prop: 'prop' } })"
       >
+        <!-- onclick="setWidget('host3', { exposed: './mfe3', prop3: { prop: 'prop' } })" -->
         Go to MFE3
       </button>
     </div>
@@ -31,5 +33,22 @@
       <script src="http://localhost:4200/main.js" type="module"></script>
       <script src="widget.js" defer></script>
     </div>
+    <!-- We can have as many widgets as we want -->
+    <!-- But if we intend to have several in the same page... -->
+    <!-- ...then we do need to share packages in the webpack configs -->
+    <!-- <div class="ng-widget">
+      <div id="host2"></div>
+      <shl-root></shl-root>
+      <script src="http://localhost:4200/polyfills.js" type="module"></script>
+      <script src="http://localhost:4200/main.js" type="module"></script>
+      <script src="widget.js" defer></script>
+    </div>
+    <div class="ng-widget">
+      <div id="host3"></div>
+      <shl-root></shl-root>
+      <script src="http://localhost:4200/polyfills.js" type="module"></script>
+      <script src="http://localhost:4200/main.js" type="module"></script>
+      <script src="widget.js" defer></script>
+    </div> -->
   </body>
 </html>
