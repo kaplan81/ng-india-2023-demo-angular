@@ -8,4 +8,4 @@ import { bootstrapApplication } from '@angular/platform-browser';
 })
 export class AppComponent {}
 
-bootstrapApplication(AppComponent).catch((err: unknown) => console.error(err));
+bootstrapApplication(AppComponent);
