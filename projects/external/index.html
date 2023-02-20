@@ -10,9 +10,15 @@
   <body>
     <h1>External App</h1>
     <div class="buttons">
-      <button type="button" onclick="setWidget(1)">Go to MFE1</button>
-      <button type="button" onclick="setWidget(2)">Go to MFE2</button>
-      <button type="button" onclick="setWidget(3)">Go to MFE3</button>
+      <button type="button" onclick="setWidget('host', { exposed: './mfe1', prop1: 'prop1' })">
+        Go to MFE1
+      </button>
+      <button type="button" onclick="setWidget('host', { exposed: './mfe2', prop2: 'prop2' })">
+        Go to MFE2
+      </button>
+      <button type="button" onclick="setWidget('host', { exposed: './mfe3', prop3: 'prop3' })">
+        Go to MFE3
+      </button>
     </div>
     <div class="ng-widget">
       <div id="host"></div>
