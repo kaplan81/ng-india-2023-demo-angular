@@ -19,7 +19,7 @@ const microfrontendWebpackConfig = {
       library: { type: 'module' },
       name: 'mfes',
       filename: 'remoteEntry.js',
-      // 'exposes' should be generated.
+      // 'exposes' should be generated as a JSON file imported here.
       exposes: {
         './mfe1': './projects/mfes/src/lib/containers/mfe1/mfe1.component.ts',
         './mfe2': './projects/mfes/src/lib/containers/mfe2/mfe2.component.ts',
