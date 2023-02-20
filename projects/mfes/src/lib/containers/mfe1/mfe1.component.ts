@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -8,4 +8,8 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   styleUrls: ['./mfe1.component.scss'],
   templateUrl: './mfe1.component.html',
 })
-export class Mfe1Component {}
+export class Mfe1Component implements OnInit {
+  ngOnInit(): void {
+    console.log('ngOnInit Mfe1Component');
+  }
+}

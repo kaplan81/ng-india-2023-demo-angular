@@ -14,7 +14,6 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { createCustomElement, NgElementConstructor } from '@angular/elements';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,9 +26,8 @@ export class AppComponent implements OnInit {
   static readonly hostElementTag = 'shl-host';
   @Input() exposed: string | null = null;
   #elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
-  @ViewChild('placeHolder', { read: ViewContainerRef }) placeHolder!: ViewContainerRef;
-  hasAppendedElement$ = new BehaviorSubject<boolean>(false);
   #injector = inject(Injector);
+  @ViewChild('placeHolder', { read: ViewContainerRef }) placeHolder!: ViewContainerRef;
 
   constructor() {
     this.defineHost(this.#injector);
@@ -63,6 +61,7 @@ export class AppComponent implements OnInit {
       const module = asyncModule[moduleName];
       const componentRef: ComponentRef<HTMLElement> = this.placeHolder.createComponent(module);
       this.setAttributes(componentRef);
+      componentRef.changeDetectorRef.detectChanges();
     }
   }
 

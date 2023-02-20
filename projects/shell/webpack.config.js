@@ -5,7 +5,7 @@ const sharedMappings = new SharedMappings();
 
 const shellWebpackConfig = {
   output: {
-    publicPath: 'auto',
+    publicPath: 'http://localhost:4200/',
   },
   optimization: {
     runtimeChunk: false,
@@ -17,7 +17,7 @@ const shellWebpackConfig = {
     new ModuleFederationPlugin({
       library: { type: 'module' },
       remotes: {
-        mfes: 'http://localhost:4201/remoteEntry.js',
+        mfes: 'mfes@http://localhost:4201/remoteEntry.js',
       },
       shared: share({
         '@angular/core': {
