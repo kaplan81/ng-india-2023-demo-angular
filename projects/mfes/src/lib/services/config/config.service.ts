@@ -12,8 +12,11 @@ export class ConfigService {
 
   loadConfig(): Observable<ConfigFile> {
     const url = 'http://localhost:4201/config/config.json';
-    return this.#http
-      .get<ConfigFile>(url)
-      .pipe(tap((configFile: ConfigFile) => (this.configs = configFile)));
+    return this.#http.get<ConfigFile>(url).pipe(
+      tap((configFile: ConfigFile) => {
+        this.configs = configFile;
+        (window as any).configs = this.configs;
+      }),
+    );
   }
 }

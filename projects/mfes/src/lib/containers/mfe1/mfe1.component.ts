@@ -21,11 +21,8 @@ import { ConfigService } from '../../services/config/config.service';
 export class Mfe1Component implements OnInit {
   #configService = inject(ConfigService);
 
-  constructor() {
-    console.log('this.#configService.configs:::', this.#configService.configs);
-  }
-
   ngOnInit(): void {
     console.log('ngOnInit Mfe1Component');
+    console.log('this.#configService.configs:::', this.#configService.configs);
   }
 }
