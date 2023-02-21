@@ -1,7 +1,14 @@
 import { HttpClientModule } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { filter, take } from 'rxjs';
-import { InitializerBase, initializerMixin } from '../../mixins/initializer.mixin';
+import { MixinBase } from '../../bases/mixin.base';
+import { initializerMixin } from '../../mixins/initializer.mixin';
 import { ConfigFile } from '../../models/config.model';
 import { ConfigService } from '../../services/config/config.service';
 
@@ -15,7 +22,11 @@ import { ConfigService } from '../../services/config/config.service';
   styleUrls: ['./mfe3.component.scss'],
   templateUrl: './mfe3.component.html',
 })
-export class Mfe3Component extends initializerMixin(InitializerBase) implements OnInit {
+export class Mfe3Component extends initializerMixin(MixinBase) implements OnInit {
+  constructor() {
+    super(inject(ConfigService));
+  }
+
   ngOnInit(): void {
     console.log('ngOnInit Mfe3Component');
     this.configs$
