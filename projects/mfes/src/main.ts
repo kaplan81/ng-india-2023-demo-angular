@@ -17,4 +17,4 @@
  * We leave `import('./bootstrap');` for consistency.
  */
 
-import('./bootstrap');
+import('./bootstrap').catch((err) => console.error(err));
