@@ -4,8 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run run:all",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build": "ng build shell && ng build mfes",
     "run:all": "node .scripts/node/mf-dev-server.js"
   },
   "dependencies": {
