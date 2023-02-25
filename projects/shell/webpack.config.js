@@ -28,7 +28,7 @@ const shellWebpackConfig = {
        * For example in this case we need to set these 2 packages to true to that the
        * shell app loads them eagerly and not lazily when the component requetsts them.
        * If that would happen you would get a null injector error for dependencies that must be
-       * initialized when an Angular app starts, that are containes in thsese pacakges.
+       * initialized when an Angular app starts, that are contains in these packages.
        *
        * We will apply the same `share` configuration to the micfrofrontends.
        */
