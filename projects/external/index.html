@@ -5,48 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>External App</title>
   </head>
   <body>
-    <h1>External App</h1>
+    <header>
+      <nav><h1>&#60;ng-india&#62;</h1></nav>
+    </header>
     <div class="buttons">
-      <button type="button" onclick="setWidget('host', { exposed: './mfe1', prop1: 'prop1' })">
+      <button
+        type="button"
+        class="button"
+        onclick="setWidget('host', { exposed: './mfe1', prop1: 'prop1' })"
+      >
         Go to MFE1
       </button>
-      <button type="button" onclick="setWidget('host', { exposed: './mfe2', prop2: ['prop2'] })">
+      <button
+        type="button"
+        class="button"
+        onclick="setWidget('host', { exposed: './mfe2', prop2: ['prop2'] })"
+      >
         <!-- <button type="button" onclick="setWidget('host2', { exposed: './mfe2', prop2: ['prop2'] })"> -->
         Go to MFE2
       </button>
       <button
         type="button"
+        class="button"
         onclick="setWidget('host', { exposed: './mfe3', prop3: { prop: 'prop' } })"
       >
         <!-- onclick="setWidget('host3', { exposed: './mfe3', prop3: { prop: 'prop' } })" -->
         Go to MFE3
       </button>
     </div>
-    <div class="ng-widget">
-      <div id="host"></div>
-      <!-- This Angular component defines the custom element 'shl-host' -->
-      <shl-root></shl-root>
-      <script src="http://localhost:4200/polyfills.js" type="module"></script>
-      <script src="http://localhost:4200/main.js" type="module"></script>
-      <script src="widget.js" defer></script>
+    <div class="widgets">
+      <div class="ng-widget">
+        <div id="host"></div>
+        <!-- This Angular component defines the custom element 'shl-host' -->
+        <shl-root></shl-root>
+        <script src="http://localhost:4200/polyfills.js" type="module"></script>
+        <script src="http://localhost:4200/main.js" type="module"></script>
+        <script src="widget.js" defer></script>
+      </div>
+      <!-- We can have as many widgets as we want -->
+      <!-- <div class="ng-widget">
+        <div id="host2"></div>
+        <shl-root></shl-root>
+        <script src="http://localhost:4200/polyfills.js" type="module"></script>
+        <script src="http://localhost:4200/main.js" type="module"></script>
+        <script src="widget.js" defer></script>
+      </div>
+      <div class="ng-widget">
+        <div id="host3"></div>
+        <shl-root></shl-root>
+        <script src="http://localhost:4200/polyfills.js" type="module"></script>
+        <script src="http://localhost:4200/main.js" type="module"></script>
+        <script src="widget.js" defer></script>
+      </div> -->
     </div>
-    <!-- We can have as many widgets as we want -->
-    <!-- <div class="ng-widget">
-      <div id="host2"></div>
-      <shl-root></shl-root>
-      <script src="http://localhost:4200/polyfills.js" type="module"></script>
-      <script src="http://localhost:4200/main.js" type="module"></script>
-      <script src="widget.js" defer></script>
-    </div>
-    <div class="ng-widget">
-      <div id="host3"></div>
-      <shl-root></shl-root>
-      <script src="http://localhost:4200/polyfills.js" type="module"></script>
-      <script src="http://localhost:4200/main.js" type="module"></script>
-      <script src="widget.js" defer></script>
-    </div> -->
   </body>
 </html>
