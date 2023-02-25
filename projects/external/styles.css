@@ -73,10 +73,12 @@ h1 {
 
 .widgets {
   padding: 50px;
-  display: flex;
-  justify-content: center;
   width: 400px;
   height: 400px;
   margin: 0 auto;
   background-color: white;
+}
+
+.ng-widget {
+  text-align: center;
 }
