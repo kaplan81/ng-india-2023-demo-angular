@@ -17,7 +17,7 @@ const shellWebpackConfig = {
     new ModuleFederationPlugin({
       library: { type: 'module' },
       remotes: {
-        mfes: 'mfes@http://localhost:4201/remoteEntry.js',
+        mfes: 'http://localhost:4201/remoteEntry.js',
       },
       /**
        * All modules and libraries are singleton and shared by default.
